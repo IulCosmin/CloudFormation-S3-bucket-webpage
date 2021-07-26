@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: This template will create a S3 bucket that will host a webpage
+Resources:
+  S3WebPageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: webapp-endava-andriescosmin
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+Outputs:
+    WebsiteURL:
+        Value: !GetAtt [Bucket, WebsiteURL]
+        Description: URL for website hosted on S3
