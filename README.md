@@ -31,3 +31,22 @@ In the properties section i did the following:
 ```
 aws cloudformation deploy --template-file template.yaml --stack-name static-website
 ```
+
+After that i used the following command in the aws cli in order to check if the stack was created succesfully
+
+```
+aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE
+```
+
+**Step 3**
+I used the following commands in the aws cli in order to upload the index and error files in the bucket
+
+```
+aws s3 cp .\error.html s3://webpage-endava-andriescosmin/
+aws s3 cp .\error.html s3://webpage-endava-andriescomin/
+```
+
+**Step 4**
+In the end, i checked if both pages (index + error) were sucessfully hosted using the following links:
+https://webapp-endava-andriescosmin.s3.eu-west-1.amazonaws.com/index.html
+https://webapp-endava-andriescosmin.s3.eu-west-1.amazonaws.com/errortesting.html
